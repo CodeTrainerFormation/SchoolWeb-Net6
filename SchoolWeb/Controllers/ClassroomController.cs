@@ -25,8 +25,11 @@ namespace SchoolWeb.Controllers
             return Content("création", "text/plain", Encoding.UTF8);
         }
 
+        [HttpGet("Classroom/Photo/{photoid}")]
         public IActionResult Photo(int photoid, [FromServices] IWebHostEnvironment environment)
         {
+            //string path = Path.Join(environment.ContentRootPath, "photos", $"teacher_{photoid}.png");
+
             string path = Path.Join(environment.ContentRootPath, "photos", "teacher-logo.png");
             using FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read);
 
